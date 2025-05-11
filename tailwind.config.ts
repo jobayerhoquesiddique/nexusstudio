@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -18,6 +19,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'],
+				heading: ['Poppins', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -52,6 +57,19 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				nexus: {
+					DEFAULT: '#6E59A5',
+					light: '#9b87f5',
+					dark: '#1A1F2C',
+				},
+				crypto: {
+					DEFAULT: '#8B5CF6',
+					light: '#D6BCFA'
+				},
+				byte: {
+					DEFAULT: '#0EA5E9',
+					light: '#D3E4FD'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -69,26 +87,86 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			keyframes: {
-				'accordion-down': {
-					from: {
-						height: '0'
+				"accordion-down": {
+					from: { height: "0" },
+					to: { height: "var(--radix-accordion-content-height)" },
+				},
+				"accordion-up": {
+					from: { height: "var(--radix-accordion-content-height)" },
+					to: { height: "0" },
+				},
+				"fade-in": {
+					"0%": {
+						opacity: "0",
+						transform: "translateY(10px)"
 					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
+					"100%": {
+						opacity: "1",
+						transform: "translateY(0)"
 					}
 				},
-				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
+				"fade-out": {
+					"0%": {
+						opacity: "1",
+						transform: "translateY(0)"
 					},
-					to: {
-						height: '0'
+					"100%": {
+						opacity: "0",
+						transform: "translateY(10px)"
+					}
+				},
+				"scale-in": {
+					"0%": {
+						transform: "scale(0.95)",
+						opacity: "0"
+					},
+					"100%": {
+						transform: "scale(1)",
+						opacity: "1"
+					}
+				},
+				"pulse-glow": {
+					"0%, 100%": {
+						opacity: "1"
+					},
+					"50%": {
+						opacity: "0.7"
+					}
+				},
+				"float": {
+					"0%, 100%": {
+						transform: "translateY(0)"
+					},
+					"50%": {
+						transform: "translateY(-10px)"
+					}
+				},
+				"spin-slow": {
+					"0%": {
+						transform: "rotate(0deg)"
+					},
+					"100%": {
+						transform: "rotate(360deg)"
 					}
 				}
 			},
 			animation: {
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				"accordion-down": "accordion-down 0.2s ease-out",
+				"accordion-up": "accordion-up 0.2s ease-out",
+				"fade-in": "fade-in 0.5s ease-out forwards",
+				"fade-out": "fade-out 0.3s ease-out",
+				"scale-in": "scale-in 0.3s ease-out",
+				"pulse-glow": "pulse-glow 3s infinite",
+				"float": "float 6s ease-in-out infinite",
+				"spin-slow": "spin-slow 12s linear infinite"
+			},
+			backgroundImage: {
+				'hero-pattern': 'linear-gradient(to right, rgba(26, 31, 44, 0.8), rgba(26, 31, 44, 0.9)), url("/placeholder.svg")',
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+				'gradient-primary': 'linear-gradient(90deg, #6E59A5 0%, #9b87f5 100%)',
+				'gradient-crypto': 'linear-gradient(90deg, #8B5CF6 0%, #D6BCFA 100%)',
+				'gradient-byte': 'linear-gradient(90deg, #0EA5E9 0%, #D3E4FD 100%)',
 			}
 		}
 	},
