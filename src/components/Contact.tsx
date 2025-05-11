@@ -1,5 +1,6 @@
 
-import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowRight, Mail, MapPin, Phone, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -7,26 +8,77 @@ import { useToast } from "@/hooks/use-toast";
 
 export const Contact = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: ""
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
-    toast({
-      title: "Message sent",
-      description: "Thank you for your message. We'll be in touch shortly!",
-      duration: 5000,
-    });
-    
-    // Reset form
-    e.currentTarget.reset();
+    // Simulate form submission
+    setTimeout(() => {
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you for your message. We'll be in touch shortly!",
+        duration: 5000,
+      });
+      
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: ""
+      });
+      setIsSubmitting(false);
+    }, 1500);
   };
+
+  // Animation for form elements when section comes into view
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const formElements = entry.target.querySelectorAll('.fade-in-element');
+          formElements.forEach((el, index) => {
+            setTimeout(() => {
+              (el as HTMLElement).style.opacity = "1";
+              (el as HTMLElement).style.transform = "translateY(0)";
+            }, index * 100);
+          });
+        }
+      });
+    }, { threshold: 0.2 });
+
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      observer.observe(contactSection);
+    }
+
+    return () => {
+      if (contactSection) {
+        observer.unobserve(contactSection);
+      }
+    };
+  }, []);
 
   return (
     <section id="contact" className="py-24 relative">
-      {/* Background elements */}
+      {/* Enhanced background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-nexus/10 blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-nexus/10 blur-3xl"></div>
+        <div className="absolute top-1/3 left-1/4 w-64 h-64 rounded-full bg-crypto/5 blur-3xl"></div>
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
@@ -40,9 +92,9 @@ export const Contact = () => {
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-6xl mx-auto">
-          {/* Contact Information */}
+          {/* Contact Information - with enhanced styling */}
           <div className="lg:col-span-5 space-y-8">
-            <div className="glass-card p-8">
+            <div className="glass-card p-8 hover:shadow-lg transition-all duration-300 fade-in-element" style={{ opacity: 0, transform: "translateY(20px)", transition: "all 0.5s ease" }}>
               <h3 className="font-heading text-2xl font-bold mb-6">Contact Information</h3>
               
               <div className="space-y-6">
@@ -85,70 +137,86 @@ export const Contact = () => {
             </div>
           </div>
           
-          {/* Contact Form */}
+          {/* Enhanced Contact Form */}
           <div className="lg:col-span-7">
-            <div className="glass-card p-8">
+            <div className="glass-card p-8 hover:shadow-lg transition-all duration-300 fade-in-element" style={{ opacity: 0, transform: "translateY(20px)", transition: "all 0.5s ease", transitionDelay: "0.2s" }}>
               <h3 className="font-heading text-2xl font-bold mb-6">Send a Message</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
+                  <div className="fade-in-element" style={{ opacity: 0, transform: "translateY(20px)", transition: "all 0.5s ease", transitionDelay: "0.3s" }}>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">
                       Name
                     </label>
                     <Input 
                       id="name" 
                       name="name" 
+                      value={formData.name}
+                      onChange={handleChange}
                       placeholder="Your name" 
                       required 
-                      className="bg-background/50"
+                      className="bg-background/50 focus:ring-2 focus:ring-primary/30"
                     />
                   </div>
-                  <div>
+                  <div className="fade-in-element" style={{ opacity: 0, transform: "translateY(20px)", transition: "all 0.5s ease", transitionDelay: "0.4s" }}>
                     <label htmlFor="email" className="block text-sm font-medium mb-2">
                       Email
                     </label>
                     <Input 
                       id="email" 
                       name="email" 
+                      value={formData.email}
+                      onChange={handleChange}
                       type="email" 
                       placeholder="Your email" 
                       required 
-                      className="bg-background/50"
+                      className="bg-background/50 focus:ring-2 focus:ring-primary/30"
                     />
                   </div>
                 </div>
                 
-                <div>
+                <div className="fade-in-element" style={{ opacity: 0, transform: "translateY(20px)", transition: "all 0.5s ease", transitionDelay: "0.5s" }}>
                   <label htmlFor="subject" className="block text-sm font-medium mb-2">
                     Subject
                   </label>
                   <Input 
                     id="subject" 
                     name="subject" 
+                    value={formData.subject}
+                    onChange={handleChange}
                     placeholder="What is this about?" 
                     required 
-                    className="bg-background/50"
+                    className="bg-background/50 focus:ring-2 focus:ring-primary/30"
                   />
                 </div>
                 
-                <div>
+                <div className="fade-in-element" style={{ opacity: 0, transform: "translateY(20px)", transition: "all 0.5s ease", transitionDelay: "0.6s" }}>
                   <label htmlFor="message" className="block text-sm font-medium mb-2">
                     Message
                   </label>
                   <Textarea 
                     id="message" 
-                    name="message" 
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     placeholder="Tell us about your project..." 
                     rows={5} 
                     required 
-                    className="bg-background/50"
+                    className="bg-background/50 focus:ring-2 focus:ring-primary/30"
                   />
                 </div>
                 
-                <div>
-                  <Button type="submit" className="bg-gradient-primary hover:opacity-90 w-full sm:w-auto">
-                    Send Message <ArrowRight size={16} className="ml-2" />
+                <div className="fade-in-element" style={{ opacity: 0, transform: "translateY(20px)", transition: "all 0.5s ease", transitionDelay: "0.7s" }}>
+                  <Button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="bg-gradient-primary hover:opacity-90 w-full sm:w-auto shimmer"
+                  >
+                    {isSubmitting ? (
+                      <>Processing...</>
+                    ) : (
+                      <>Send Message <ArrowRight size={16} className="ml-2" /></>
+                    )}
                   </Button>
                 </div>
               </form>
@@ -162,8 +230,8 @@ export const Contact = () => {
 
 const ContactInfo = ({ icon, title, content }: { icon: React.ReactNode; title: string; content: string }) => {
   return (
-    <div className="flex items-start">
-      <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center mr-4">
+    <div className="flex items-start group">
+      <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center mr-4 group-hover:bg-primary/20 transition-colors">
         {icon}
       </div>
       <div>
