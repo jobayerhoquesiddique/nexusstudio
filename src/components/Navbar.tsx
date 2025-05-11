@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -54,12 +55,16 @@ export const Navbar = () => {
             <button onClick={() => scrollToSection("portfolio")} className="text-sm font-medium text-foreground hover:text-primary transition-colors">
               Portfolio
             </button>
+            <button onClick={() => scrollToSection("testimonials")} className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+              Testimonials
+            </button>
             <button onClick={() => scrollToSection("contact")} className="text-sm font-medium text-foreground hover:text-primary transition-colors">
               Contact
             </button>
           </nav>
 
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-4">
+            <ThemeToggle />
             <Button 
               className="bg-gradient-primary hover:opacity-90" 
               onClick={() => scrollToSection("contact")}
@@ -69,14 +74,16 @@ export const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <Button 
-            variant="ghost" 
-            size="icon"
-            className="md:hidden"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </Button>
+          <div className="md:hidden flex items-center gap-3">
+            <ThemeToggle />
+            <Button 
+              variant="ghost" 
+              size="icon"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </Button>
+          </div>
         </div>
       </div>
 
@@ -107,6 +114,12 @@ export const Navbar = () => {
               onClick={() => scrollToSection("portfolio")}
             >
               Portfolio
+            </button>
+            <button 
+              className="text-foreground hover:text-primary py-2 transition-colors"
+              onClick={() => scrollToSection("testimonials")}
+            >
+              Testimonials
             </button>
             <button 
               className="text-foreground hover:text-primary py-2 transition-colors"

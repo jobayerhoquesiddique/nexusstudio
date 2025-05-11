@@ -35,7 +35,7 @@ export const ScrollToTop = () => {
         variant="outline"
         size="icon"
         onClick={scrollToTop}
-        className="h-10 w-10 rounded-full bg-primary/10 border border-primary/20 hover:bg-primary/20"
+        className="h-10 w-10 rounded-full bg-primary/10 border border-primary/20 hover:bg-primary/20 backdrop-blur-sm"
         aria-label="Scroll to top"
       >
         <ArrowUp className="h-5 w-5" />

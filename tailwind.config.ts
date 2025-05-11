@@ -148,6 +148,14 @@ export default {
 					"100%": {
 						transform: "rotate(360deg)"
 					}
+				},
+				"shimmer": {
+					"0%": {
+						backgroundPosition: "-40rem 0"
+					},
+					"100%": {
+						backgroundPosition: "40rem 0"
+					}
 				}
 			},
 			animation: {
@@ -158,7 +166,8 @@ export default {
 				"scale-in": "scale-in 0.3s ease-out",
 				"pulse-glow": "pulse-glow 3s infinite",
 				"float": "float 6s ease-in-out infinite",
-				"spin-slow": "spin-slow 12s linear infinite"
+				"spin-slow": "spin-slow 12s linear infinite",
+				"shimmer": "shimmer 3s infinite linear"
 			},
 			backgroundImage: {
 				'hero-pattern': 'linear-gradient(to right, rgba(26, 31, 44, 0.8), rgba(26, 31, 44, 0.9)), url("/placeholder.svg")',
