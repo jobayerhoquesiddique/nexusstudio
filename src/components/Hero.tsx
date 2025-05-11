@@ -11,7 +11,7 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-background px-4 py-24">
+    <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-background px-4 py-24">
       {/* Animated background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-20 left-10 w-64 h-64 rounded-full bg-nexus/20 blur-3xl animate-pulse-glow"></div>
@@ -44,10 +44,19 @@ export const Hero = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 mt-8 animate-fade-in" style={{ animationDelay: "0.8s" }}>
-            <Button size="lg" className="bg-gradient-primary hover:opacity-90">
+            <Button 
+              size="lg" 
+              className="bg-gradient-primary hover:opacity-90"
+              onClick={() => document.getElementById('portfolio')?.scrollIntoView({behavior: 'smooth'})}
+            >
               Explore Our Work
             </Button>
-            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/20">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-primary text-primary hover:bg-primary/20"
+              onClick={() => document.getElementById('about')?.scrollIntoView({behavior: 'smooth'})}
+            >
               About Us
             </Button>
           </div>

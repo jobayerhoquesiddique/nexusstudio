@@ -18,6 +18,14 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      setMobileMenuOpen(false);
+    }
+  };
+
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -34,25 +42,28 @@ export const Navbar = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            <Link to="/" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            <button onClick={() => scrollToSection("hero")} className="text-sm font-medium text-foreground hover:text-primary transition-colors">
               Home
-            </Link>
-            <Link to="/#services" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            </button>
+            <button onClick={() => scrollToSection("services")} className="text-sm font-medium text-foreground hover:text-primary transition-colors">
               Services
-            </Link>
-            <Link to="/#about" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            </button>
+            <button onClick={() => scrollToSection("about")} className="text-sm font-medium text-foreground hover:text-primary transition-colors">
               About
-            </Link>
-            <Link to="/#portfolio" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            </button>
+            <button onClick={() => scrollToSection("portfolio")} className="text-sm font-medium text-foreground hover:text-primary transition-colors">
               Portfolio
-            </Link>
-            <Link to="/#contact" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            </button>
+            <button onClick={() => scrollToSection("contact")} className="text-sm font-medium text-foreground hover:text-primary transition-colors">
               Contact
-            </Link>
+            </button>
           </nav>
 
           <div className="hidden md:block">
-            <Button className="bg-gradient-primary hover:opacity-90">
+            <Button 
+              className="bg-gradient-primary hover:opacity-90" 
+              onClick={() => scrollToSection("contact")}
+            >
               Get in Touch
             </Button>
           </div>
@@ -73,42 +84,40 @@ export const Navbar = () => {
       {mobileMenuOpen && (
         <div className="md:hidden bg-background/95 backdrop-blur-lg absolute top-full left-0 w-full border-t border-border/20 animate-fade-in">
           <div className="flex flex-col p-6 gap-4">
-            <Link 
-              to="/" 
+            <button 
               className="text-foreground hover:text-primary py-2 transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => scrollToSection("hero")}
             >
               Home
-            </Link>
-            <Link 
-              to="/#services" 
+            </button>
+            <button 
               className="text-foreground hover:text-primary py-2 transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => scrollToSection("services")}
             >
               Services
-            </Link>
-            <Link 
-              to="/#about" 
+            </button>
+            <button 
               className="text-foreground hover:text-primary py-2 transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => scrollToSection("about")}
             >
               About
-            </Link>
-            <Link 
-              to="/#portfolio" 
+            </button>
+            <button 
               className="text-foreground hover:text-primary py-2 transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => scrollToSection("portfolio")}
             >
               Portfolio
-            </Link>
-            <Link 
-              to="/#contact" 
+            </button>
+            <button 
               className="text-foreground hover:text-primary py-2 transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => scrollToSection("contact")}
             >
               Contact
-            </Link>
-            <Button className="bg-gradient-primary hover:opacity-90 mt-2">
+            </button>
+            <Button 
+              className="bg-gradient-primary hover:opacity-90 mt-2"
+              onClick={() => scrollToSection("contact")}
+            >
               Get in Touch
             </Button>
           </div>
