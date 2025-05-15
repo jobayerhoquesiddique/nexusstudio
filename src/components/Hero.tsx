@@ -1,9 +1,10 @@
 
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "./ThemeProvider";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export const Hero = () => {
   const { theme } = useTheme();
@@ -97,6 +98,7 @@ export const Hero = () => {
         
         {/* Business division cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 animate-slide-up" style={{ animationDelay: "1s" }}>
+          {/* Nexus Studio Card */}
           <div className="corporate-card p-6 transform hover:scale-105 transition-all hover:shadow-corporate/20 hover:shadow-lg flex flex-col items-center">
             <div className="h-14 w-14 rounded-full bg-corporate/10 mx-auto mb-4 flex items-center justify-center">
               <span className="text-gradient-corporate text-xl font-bold">NS</span>
@@ -108,46 +110,58 @@ export const Hero = () => {
             </div>
           </div>
           
-          <div className="corporate-card p-6 transform hover:scale-105 transition-all hover:shadow-crypto/20 hover:shadow-lg flex flex-col items-center">
-            <div className="h-14 w-14 rounded-full bg-crypto/10 mx-auto mb-4 flex items-center justify-center">
-              <span className="text-gradient-crypto text-xl font-bold">CN</span>
+          {/* Crypto Nexus Card with Link */}
+          <Link to="/crypto-nexus" className="block">
+            <div className="corporate-card p-6 transform hover:scale-105 transition-all hover:shadow-crypto/20 hover:shadow-lg flex flex-col items-center h-full">
+              <div className="h-14 w-14 rounded-full bg-crypto/10 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-gradient-crypto text-xl font-bold">CN</span>
+              </div>
+              <h3 className="text-gradient-crypto font-heading font-bold text-2xl mb-2">Crypto Nexus</h3>
+              <p className="text-muted-foreground">Enterprise blockchain solutions and digital assets</p>
+              <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700 w-full">
+                <Button variant="ghost" className="text-crypto hover:text-crypto hover:bg-crypto/10 w-full">
+                  Visit Division
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
             </div>
-            <h3 className="text-gradient-crypto font-heading font-bold text-2xl mb-2">Crypto Nexus</h3>
-            <p className="text-muted-foreground">Enterprise blockchain solutions and digital assets</p>
-            <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700 w-full">
-              <Button variant="ghost" className="text-crypto hover:text-crypto hover:bg-crypto/10 w-full">Learn More</Button>
-            </div>
-          </div>
+          </Link>
           
-          <div className="corporate-card p-6 transform hover:scale-105 transition-all hover:shadow-byte/20 hover:shadow-lg flex flex-col items-center">
-            <div className="h-14 w-14 rounded-full bg-byte/10 mx-auto mb-4 flex items-center justify-center">
-              <span className="text-gradient-byte text-xl font-bold">BS</span>
+          {/* Byte Studio Card with Link */}
+          <Link to="/byte-studio" className="block">
+            <div className="corporate-card p-6 transform hover:scale-105 transition-all hover:shadow-byte/20 hover:shadow-lg flex flex-col items-center h-full">
+              <div className="h-14 w-14 rounded-full bg-byte/10 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-gradient-byte text-xl font-bold">BS</span>
+              </div>
+              <h3 className="text-gradient-byte font-heading font-bold text-2xl mb-2">Byte Studio</h3>
+              <p className="text-muted-foreground">Enterprise software and digital transformation</p>
+              <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700 w-full">
+                <Button variant="ghost" className="text-byte hover:text-byte hover:bg-byte/10 w-full">
+                  Visit Division
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
             </div>
-            <h3 className="text-gradient-byte font-heading font-bold text-2xl mb-2">Byte Studio</h3>
-            <p className="text-muted-foreground">Enterprise software and digital transformation</p>
-            <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700 w-full">
-              <Button variant="ghost" className="text-byte hover:text-byte hover:bg-byte/10 w-full">Learn More</Button>
-            </div>
-          </div>
+          </Link>
         </div>
         
         {/* Company metrics with enhanced visuals */}
         <div className="mt-20 py-8 rounded-2xl bg-gradient-card border border-slate-200 dark:border-slate-800 shadow-lg">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 animate-fade-in px-4" style={{ animationDelay: "1.2s" }}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 animate-fade-in px-4 counter-section" style={{ animationDelay: "1.2s" }}>
             <div className="text-center">
-              <h3 className="text-gradient-corporate text-4xl font-bold mb-2 counter" data-target="120">120+</h3>
+              <h3 className="text-gradient-corporate text-4xl font-bold mb-2 counter-value" data-value="120">0+</h3>
               <p className="text-muted-foreground">Enterprise Clients</p>
             </div>
             <div className="text-center">
-              <h3 className="text-gradient-corporate text-4xl font-bold mb-2 counter" data-target="35">35+</h3>
+              <h3 className="text-gradient-corporate text-4xl font-bold mb-2 counter-value" data-value="35">0+</h3>
               <p className="text-muted-foreground">Global Markets</p>
             </div>
             <div className="text-center">
-              <h3 className="text-gradient-corporate text-4xl font-bold mb-2 counter" data-target="85">85+</h3>
+              <h3 className="text-gradient-corporate text-4xl font-bold mb-2 counter-value" data-value="85">0+</h3>
               <p className="text-muted-foreground">Team Experts</p>
             </div>
             <div className="text-center">
-              <h3 className="text-gradient-corporate text-4xl font-bold mb-2 counter" data-target="12">12+</h3>
+              <h3 className="text-gradient-corporate text-4xl font-bold mb-2 counter-value" data-value="12">0+</h3>
               <p className="text-muted-foreground">Years Experience</p>
             </div>
           </div>
@@ -180,49 +194,5 @@ export const Hero = () => {
     </section>
   );
 };
-
-// Add counter animation effect for numbers
-useEffect(() => {
-  const counters = document.querySelectorAll('.counter');
-  
-  const countUp = (counter: Element) => {
-    const target = parseInt(counter.getAttribute('data-target') || '0');
-    const duration = 2000; // ms
-    const step = target / (duration / 30);
-    let current = 0;
-    
-    const updateCounter = () => {
-      current += step;
-      
-      if (current < target) {
-        counter.textContent = Math.ceil(current) + '+';
-        setTimeout(updateCounter, 30);
-      } else {
-        counter.textContent = target + '+';
-      }
-    };
-    
-    updateCounter();
-  };
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        countUp(entry.target);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
-  
-  counters.forEach(counter => {
-    observer.observe(counter);
-  });
-  
-  return () => {
-    counters.forEach(counter => {
-      observer.unobserve(counter);
-    });
-  };
-}, []);
 
 export default Hero;

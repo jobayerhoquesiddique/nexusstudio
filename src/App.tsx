@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./components/ThemeProvider";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import CryptoNexus from "./pages/CryptoNexus";
+import ByteStudio from "./pages/ByteStudio";
 import ScrollToTop from "./components/ScrollToTop";
 import "./styles/animations.css";
 import { useEffect } from "react";
@@ -72,6 +74,8 @@ const App = () => {
             <ScrollToTop />
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/crypto-nexus" element={<CryptoNexus />} />
+              <Route path="/byte-studio" element={<ByteStudio />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
