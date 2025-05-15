@@ -5,7 +5,11 @@ import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 
-export const Navbar = () => {
+interface NavbarProps {
+  activeSection?: string;
+}
+
+export const Navbar = ({ activeSection = 'hero' }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -43,22 +47,52 @@ export const Navbar = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            <button onClick={() => scrollToSection("hero")} className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            <button 
+              onClick={() => scrollToSection("hero")} 
+              className={`text-sm font-medium transition-colors ${
+                activeSection === "hero" ? "text-primary font-semibold" : "text-foreground hover:text-primary"
+              }`}
+            >
               Home
             </button>
-            <button onClick={() => scrollToSection("services")} className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            <button 
+              onClick={() => scrollToSection("services")} 
+              className={`text-sm font-medium transition-colors ${
+                activeSection === "services" ? "text-primary font-semibold" : "text-foreground hover:text-primary"
+              }`}
+            >
               Services
             </button>
-            <button onClick={() => scrollToSection("about")} className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            <button 
+              onClick={() => scrollToSection("about")} 
+              className={`text-sm font-medium transition-colors ${
+                activeSection === "about" ? "text-primary font-semibold" : "text-foreground hover:text-primary"
+              }`}
+            >
               About
             </button>
-            <button onClick={() => scrollToSection("portfolio")} className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            <button 
+              onClick={() => scrollToSection("portfolio")} 
+              className={`text-sm font-medium transition-colors ${
+                activeSection === "portfolio" ? "text-primary font-semibold" : "text-foreground hover:text-primary"
+              }`}
+            >
               Portfolio
             </button>
-            <button onClick={() => scrollToSection("testimonials")} className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            <button 
+              onClick={() => scrollToSection("testimonials")} 
+              className={`text-sm font-medium transition-colors ${
+                activeSection === "testimonials" ? "text-primary font-semibold" : "text-foreground hover:text-primary"
+              }`}
+            >
               Testimonials
             </button>
-            <button onClick={() => scrollToSection("contact")} className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            <button 
+              onClick={() => scrollToSection("contact")} 
+              className={`text-sm font-medium transition-colors ${
+                activeSection === "contact" ? "text-primary font-semibold" : "text-foreground hover:text-primary"
+              }`}
+            >
               Contact
             </button>
           </nav>
@@ -92,37 +126,49 @@ export const Navbar = () => {
         <div className="md:hidden bg-background/95 backdrop-blur-lg absolute top-full left-0 w-full border-t border-border/20 animate-fade-in">
           <div className="flex flex-col p-6 gap-4">
             <button 
-              className="text-foreground hover:text-primary py-2 transition-colors"
+              className={`py-2 transition-colors ${
+                activeSection === "hero" ? "text-primary font-semibold" : "text-foreground hover:text-primary"
+              }`}
               onClick={() => scrollToSection("hero")}
             >
               Home
             </button>
             <button 
-              className="text-foreground hover:text-primary py-2 transition-colors"
+              className={`py-2 transition-colors ${
+                activeSection === "services" ? "text-primary font-semibold" : "text-foreground hover:text-primary"
+              }`}
               onClick={() => scrollToSection("services")}
             >
               Services
             </button>
             <button 
-              className="text-foreground hover:text-primary py-2 transition-colors"
+              className={`py-2 transition-colors ${
+                activeSection === "about" ? "text-primary font-semibold" : "text-foreground hover:text-primary"
+              }`}
               onClick={() => scrollToSection("about")}
             >
               About
             </button>
             <button 
-              className="text-foreground hover:text-primary py-2 transition-colors"
+              className={`py-2 transition-colors ${
+                activeSection === "portfolio" ? "text-primary font-semibold" : "text-foreground hover:text-primary"
+              }`}
               onClick={() => scrollToSection("portfolio")}
             >
               Portfolio
             </button>
             <button 
-              className="text-foreground hover:text-primary py-2 transition-colors"
+              className={`py-2 transition-colors ${
+                activeSection === "testimonials" ? "text-primary font-semibold" : "text-foreground hover:text-primary"
+              }`}
               onClick={() => scrollToSection("testimonials")}
             >
               Testimonials
             </button>
             <button 
-              className="text-foreground hover:text-primary py-2 transition-colors"
+              className={`py-2 transition-colors ${
+                activeSection === "contact" ? "text-primary font-semibold" : "text-foreground hover:text-primary"
+              }`}
               onClick={() => scrollToSection("contact")}
             >
               Contact
