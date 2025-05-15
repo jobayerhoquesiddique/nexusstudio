@@ -26,7 +26,7 @@ export const Footer = () => {
             {/* Company Info */}
             <div>
               <h3 className="font-heading text-2xl font-bold text-gradient-primary mb-6">
-                NEXUS<span className="text-foreground">STUDIO</span>
+                NEXUS<span className="text-foreground">CREATIVE</span>
               </h3>
               <p className="text-muted-foreground mb-6">
                 A parent group uniting expertise in blockchain technology, software development, and digital innovation.
@@ -64,7 +64,7 @@ export const Footer = () => {
             <div>
               <h4 className="font-medium text-lg mb-6">Our Companies</h4>
               <ul className="space-y-3">
-                <FooterLink href="#" label="Nexus Studio" />
+                <FooterLink href="#" label="Nexus Creative Studio" />
                 <FooterLink href="#" label="Crypto Nexus" />
                 <FooterLink href="#" label="Byte Studio" />
                 <FooterLink href="#" label="Jobayer Hoque Siddique" />
@@ -96,7 +96,7 @@ export const Footer = () => {
         
         <div className="py-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground mb-4 md:mb-0">
-            © {new Date().getFullYear()} Nexus Studio. All rights reserved.
+            © {new Date().getFullYear()} Nexus Creative Studio. All rights reserved.
           </p>
           <div className="flex space-x-6">
             <a href="#" className="text-sm text-muted-foreground hover:text-foreground">Privacy Policy</a>

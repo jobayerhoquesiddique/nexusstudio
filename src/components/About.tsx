@@ -28,7 +28,7 @@ export const About = () => {
         <Tabs defaultValue="nexus" className="w-full max-w-4xl mx-auto" onValueChange={setActiveTab}>
           <TabsList className="grid w-full grid-cols-3 mb-12">
             <TabsTrigger value="nexus" className="data-[state=active]:bg-nexus data-[state=active]:text-white">
-              Nexus Studio
+              Nexus Creative Studio
             </TabsTrigger>
             <TabsTrigger value="crypto" className="data-[state=active]:bg-crypto data-[state=active]:text-white">
               Crypto Nexus
@@ -40,9 +40,9 @@ export const About = () => {
           
           <TabsContent value="nexus" className="animate-fade-in">
             <AboutTab
-              title="Nexus Studio"
+              title="Nexus Creative Studio"
               subtitle="The Innovation Hub"
-              description="Founded in 2018, Nexus Studio is the parent organization that unites specialized agencies in blockchain and software development. We've built a reputation for delivering innovative solutions that combine cutting-edge technology with strategic business insights. Our holistic approach ensures that every project benefits from our diverse expertise across multiple technology domains."
+              description="Founded in 2018, Nexus Creative Studio is the parent organization that unites specialized agencies in blockchain and software development. We've built a reputation for delivering innovative solutions that combine cutting-edge technology with strategic business insights. Our holistic approach ensures that every project benefits from our diverse expertise across multiple technology domains."
               highlights={[
                 "Unified technology vision",
                 "Cross-discipline collaboration",
@@ -116,10 +116,10 @@ export const About = () => {
             </h3>
             <h4 className="text-gradient-primary text-xl mb-6">Founder & CEO</h4>
             <p className="text-muted-foreground mb-6">
-              With over a decade of experience in technology leadership, Jobayer founded Nexus Studio with a vision to create a comprehensive ecosystem of digital service providers addressing the complex technological needs of modern businesses.
+              With over a decade of experience in technology leadership, Jobayer founded Nexus Creative Studio with a vision to create a comprehensive ecosystem of digital service providers addressing the complex technological needs of modern businesses.
             </p>
             <p className="text-muted-foreground mb-6">
-              Before founding Nexus Studio, Jobayer led major digital transformation initiatives for Fortune 500 companies, bringing his unique perspective on how technology can drive business value. His expertise spans blockchain implementation, enterprise software architecture, and digital strategy development.
+              Before founding Nexus Creative Studio, Jobayer led major digital transformation initiatives for Fortune 500 companies, bringing his unique perspective on how technology can drive business value. His expertise spans blockchain implementation, enterprise software architecture, and digital strategy development.
             </p>
             <div className="space-y-4 mb-8">
               <div className="flex items-center gap-3">

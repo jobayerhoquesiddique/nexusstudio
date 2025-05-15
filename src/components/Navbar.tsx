@@ -37,7 +37,7 @@ export const Navbar = () => {
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
             <span className="font-heading text-2xl font-bold text-gradient-primary">
-              NEXUS<span className="text-foreground">STUDIO</span>
+              NEXUS<span className="text-foreground">CREATIVE</span>
             </span>
           </Link>
 
