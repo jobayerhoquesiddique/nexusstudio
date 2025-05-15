@@ -58,17 +58,40 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				nexus: {
-					DEFAULT: '#6E59A5',
-					light: '#9b87f5',
-					dark: '#1A1F2C',
+					DEFAULT: '#4A5568',
+					light: '#718096',
+					dark: '#1A202C',
+					accent: '#3182CE',
 				},
 				crypto: {
-					DEFAULT: '#8B5CF6',
-					light: '#D6BCFA'
+					DEFAULT: '#2B6CB0',
+					light: '#90CDF4',
+					dark: '#2C5282',
 				},
 				byte: {
-					DEFAULT: '#0EA5E9',
-					light: '#D3E4FD'
+					DEFAULT: '#38A169',
+					light: '#9AE6B4',
+					dark: '#276749',
+				},
+				success: {
+					DEFAULT: '#48BB78',
+					light: '#9AE6B4',
+				},
+				warning: {
+					DEFAULT: '#ECC94B',
+					light: '#FEFCBF',
+				},
+				danger: {
+					DEFAULT: '#F56565',
+					light: '#FED7D7',
+				},
+				corporate: {
+					DEFAULT: '#3182CE',
+					light: '#EBF8FF',
+					dark: '#2A4365',
+					accent: '#63B3ED',
+					muted: '#E2E8F0',
+					highlight: '#4FD1C5',
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
@@ -156,6 +179,63 @@ export default {
 					"100%": {
 						backgroundPosition: "40rem 0"
 					}
+				},
+				"slide-in": {
+					"0%": {
+						transform: "translateX(-100%)",
+						opacity: "0"
+					},
+					"100%": {
+						transform: "translateX(0)",
+						opacity: "1"
+					}
+				},
+				"slide-up": {
+					"0%": {
+						transform: "translateY(20px)",
+						opacity: "0"
+					},
+					"100%": {
+						transform: "translateY(0)",
+						opacity: "1"
+					}
+				},
+				"zoom-in": {
+					"0%": {
+						transform: "scale(0.8)",
+						opacity: "0"
+					},
+					"100%": {
+						transform: "scale(1)",
+						opacity: "1"
+					}
+				},
+				"bounce-light": {
+					"0%, 100%": {
+						transform: "translateY(0)"
+					},
+					"50%": {
+						transform: "translateY(-5px)"
+					}
+				},
+				"rotate-slow": {
+					"0%": {
+						transform: "rotate(0deg)"
+					},
+					"100%": {
+						transform: "rotate(360deg)"
+					}
+				},
+				"gradient-shift": {
+					"0%": {
+						backgroundPosition: "0% 50%"
+					},
+					"50%": {
+						backgroundPosition: "100% 50%"
+					},
+					"100%": {
+						backgroundPosition: "0% 50%"
+					}
 				}
 			},
 			animation: {
@@ -167,15 +247,26 @@ export default {
 				"pulse-glow": "pulse-glow 3s infinite",
 				"float": "float 6s ease-in-out infinite",
 				"spin-slow": "spin-slow 12s linear infinite",
-				"shimmer": "shimmer 3s infinite linear"
+				"shimmer": "shimmer 3s infinite linear",
+				"slide-in": "slide-in 0.6s ease-out",
+				"slide-up": "slide-up 0.5s ease-out",
+				"zoom-in": "zoom-in 0.5s ease-out",
+				"bounce-light": "bounce-light 2s infinite ease-in-out",
+				"rotate-slow": "rotate-slow 20s linear infinite",
+				"gradient-shift": "gradient-shift 8s ease infinite"
 			},
 			backgroundImage: {
-				'hero-pattern': 'linear-gradient(to right, rgba(26, 31, 44, 0.8), rgba(26, 31, 44, 0.9)), url("/placeholder.svg")',
+				'hero-pattern': 'linear-gradient(to right, rgba(26, 32, 44, 0.8), rgba(26, 32, 44, 0.9)), url("/assets/hero-bg.jpg")',
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-				'gradient-primary': 'linear-gradient(90deg, #6E59A5 0%, #9b87f5 100%)',
-				'gradient-crypto': 'linear-gradient(90deg, #8B5CF6 0%, #D6BCFA 100%)',
-				'gradient-byte': 'linear-gradient(90deg, #0EA5E9 0%, #D3E4FD 100%)',
+				'gradient-primary': 'linear-gradient(90deg, #3182CE 0%, #63B3ED 100%)',
+				'gradient-crypto': 'linear-gradient(90deg, #2B6CB0 0%, #90CDF4 100%)',
+				'gradient-byte': 'linear-gradient(90deg, #38A169 0%, #9AE6B4 100%)',
+				'gradient-corporate': 'linear-gradient(135deg, #3182CE 0%, #4FD1C5 100%)',
+				'gradient-blue': 'linear-gradient(135deg, #2B6CB0 0%, #4299E1 100%)',
+				'gradient-card': 'linear-gradient(135deg, rgba(49, 130, 206, 0.05) 0%, rgba(79, 209, 197, 0.05) 100%)',
+				'dots-pattern': 'radial-gradient(#3182CE 1px, transparent 1px)',
+				'grid-pattern': 'linear-gradient(to right, rgba(226, 232, 240, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(226, 232, 240, 0.1) 1px, transparent 1px)'
 			}
 		}
 	},
