@@ -21,7 +21,7 @@ const testimonials: Testimonial[] = [
     role: "CTO",
     company: "TechGrowth",
     content: "Working with Nexus Studio has been transformative for our business. Their blockchain solutions helped us improve security and transparency across our platform. Highly recommended!",
-    avatar: "/placeholder.svg"
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop"
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ const testimonials: Testimonial[] = [
     role: "Founder",
     company: "ArtBlock NFT",
     content: "The NFT marketplace Crypto Nexus built for us exceeded our expectations. Their team's expertise in blockchain technology and digital assets is unmatched in the industry.",
-    avatar: "/placeholder.svg"
+    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop"
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ const testimonials: Testimonial[] = [
     role: "Director of Innovation",
     company: "FutureFinance",
     content: "Byte Studio's AI implementation has revolutionized our data analysis capabilities. The custom solution they built has saved us countless hours and improved our decision-making process.",
-    avatar: "/placeholder.svg"
+    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop"
   },
   {
     id: 4,
@@ -45,7 +45,7 @@ const testimonials: Testimonial[] = [
     role: "CEO",
     company: "HealthTech Solutions",
     content: "Jobayer's technical consultation was invaluable for our healthcare startup. His strategic guidance helped us navigate complex regulatory requirements while building an innovative product.",
-    avatar: "/placeholder.svg"
+    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200&auto=format&fit=crop"
   }
 ];
 
@@ -111,7 +111,7 @@ export const Testimonials = () => {
                     {/* Current Testimonial */}
                     <div className="w-full min-w-full p-8 md:p-12">
                       <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
-                        <div className="md:w-1/4">
+                        <div className="md:w-1/4 flex justify-center">
                           <Avatar className="h-24 w-24 border-4 border-primary/20">
                             <AvatarImage src={testimonials[currentIndex].avatar} alt={testimonials[currentIndex].name} />
                             <AvatarFallback className="text-2xl bg-primary/10">{testimonials[currentIndex].name.charAt(0)}</AvatarFallback>

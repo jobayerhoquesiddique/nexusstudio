@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CheckCircle, Users, Award, Globe } from "lucide-react";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 export const About = () => {
   const [activeTab, setActiveTab] = useState("nexus");
@@ -49,7 +50,7 @@ export const About = () => {
                 "Award-winning global portfolio",
                 "Continuous innovation culture",
               ]}
-              image="/placeholder.svg"
+              image="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1000&auto=format&fit=crop"
               bgClass="bg-nexus/20"
               buttonClass="bg-gradient-primary"
               values={[
@@ -72,7 +73,7 @@ export const About = () => {
                 "Security-first methodology",
                 "Decentralized finance solutions",
               ]}
-              image="/placeholder.svg"
+              image="https://images.unsplash.com/photo-1639762681057-408e52192e55?q=80&w=1000&auto=format&fit=crop"
               bgClass="bg-crypto/20"
               buttonClass="bg-gradient-crypto"
               values={[
@@ -95,7 +96,7 @@ export const About = () => {
                 "Cloud-native architecture",
                 "Mobile-first application design",
               ]}
-              image="/placeholder.svg"
+              image="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=1000&auto=format&fit=crop"
               bgClass="bg-byte/20"
               buttonClass="bg-gradient-byte"
               values={[
@@ -147,7 +148,7 @@ export const About = () => {
               <div className="absolute inset-0 bg-gradient-primary rounded-xl blur-xl opacity-30 animate-pulse-glow"></div>
               <div className="relative rounded-xl overflow-hidden aspect-square">
                 <img
-                  src="/placeholder.svg"
+                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1000&auto=format&fit=crop"
                   alt="Jobayer Hoque Siddique"
                   className="w-full h-full object-cover"
                 />
@@ -170,15 +171,41 @@ export const About = () => {
           
           <div className="flex items-center justify-center mb-12">
             <div className="flex -space-x-4 items-center">
-              {[...Array(5)].map((_, index) => (
-                <div key={index} className="w-16 h-16 rounded-full border-4 border-background overflow-hidden">
-                  <img 
-                    src="/placeholder.svg" 
-                    alt={`Team member ${index + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              ))}
+              <div className="w-16 h-16 rounded-full border-4 border-background overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=150&auto=format&fit=crop"
+                  alt="Team member 1"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="w-16 h-16 rounded-full border-4 border-background overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop"
+                  alt="Team member 2"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="w-16 h-16 rounded-full border-4 border-background overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=150&auto=format&fit=crop"
+                  alt="Team member 3"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="w-16 h-16 rounded-full border-4 border-background overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=150&auto=format&fit=crop"
+                  alt="Team member 4"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="w-16 h-16 rounded-full border-4 border-background overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=150&auto=format&fit=crop"
+                  alt="Team member 5"
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center border-4 border-background text-white font-medium">
                 15+
               </div>
@@ -271,11 +298,13 @@ const AboutTab = ({
         <div className="relative group">
           <div className={`absolute inset-0 rounded-2xl ${bgClass} blur-xl transform group-hover:scale-105 transition-transform duration-500`}></div>
           <div className="relative glass-card overflow-hidden rounded-2xl">
-            <img
-              src={image}
-              alt={title}
-              className="w-full h-full object-cover aspect-video transform group-hover:scale-105 transition-transform duration-500"
-            />
+            <AspectRatio ratio={16/9}>
+              <img
+                src={image}
+                alt={title}
+                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+              />
+            </AspectRatio>
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@
 import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "./ThemeProvider";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 export const Hero = () => {
   const { theme } = useTheme();
@@ -24,6 +25,16 @@ export const Hero = () => {
         {/* Additional animated elements */}
         <div className="absolute top-1/4 right-1/3 w-16 h-16 rounded-full bg-primary/30 blur-xl animate-pulse-glow" style={{ animationDelay: "1.5s" }}></div>
         <div className="absolute bottom-1/3 left-1/4 w-24 h-24 rounded-full bg-crypto/30 blur-xl animate-pulse-glow" style={{ animationDelay: "2.5s" }}></div>
+      </div>
+      
+      {/* Background image overlay with gradient */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background z-10"></div>
+        <img 
+          src="https://images.unsplash.com/photo-1578070181910-f1e514afdd08?q=80&w=2000&auto=format&fit=crop"
+          alt="Digital Background"
+          className="w-full h-full object-cover opacity-20"
+        />
       </div>
       
       {/* Enhanced grid pattern overlay */}

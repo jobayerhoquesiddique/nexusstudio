@@ -11,6 +11,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 export const Portfolio = () => {
   return (
@@ -84,7 +85,7 @@ const allProjects: Project[] = [
     id: 1,
     title: "DecentralEx",
     description: "A decentralized cryptocurrency exchange with advanced trading features.",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=1000&auto=format&fit=crop",
     category: "crypto",
     tags: ["Blockchain", "DeFi", "Smart Contracts"],
     link: "#"
@@ -93,7 +94,7 @@ const allProjects: Project[] = [
     id: 2,
     title: "AI Vision Pro",
     description: "Computer vision solution for retail analytics and customer insights.",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1679403766669-6947366dcb60?q=80&w=1000&auto=format&fit=crop",
     category: "software",
     tags: ["AI", "Machine Learning", "Computer Vision"],
     link: "#"
@@ -102,7 +103,7 @@ const allProjects: Project[] = [
     id: 3,
     title: "MetaVerse Marketplace",
     description: "NFT marketplace for virtual real estate in the metaverse.",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1000&auto=format&fit=crop",
     category: "crypto",
     tags: ["NFT", "Ethereum", "Metaverse"],
     link: "#"
@@ -111,7 +112,7 @@ const allProjects: Project[] = [
     id: 4,
     title: "ByteHealth",
     description: "Healthcare management platform with AI-powered diagnostics.",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1000&auto=format&fit=crop",
     category: "software",
     tags: ["Healthcare", "AI", "SaaS"],
     link: "#"
@@ -120,7 +121,7 @@ const allProjects: Project[] = [
     id: 5,
     title: "CryptoWallet Pro",
     description: "Secure multi-chain cryptocurrency wallet with DeFi integration.",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1634704784915-aacf363b021f?q=80&w=1000&auto=format&fit=crop",
     category: "crypto",
     tags: ["Wallet", "Security", "Multi-chain"],
     link: "#"
@@ -129,7 +130,7 @@ const allProjects: Project[] = [
     id: 6,
     title: "EcoTrack",
     description: "Sustainability tracking platform for enterprises with blockchain verification.",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1000&auto=format&fit=crop",
     category: "web",
     tags: ["Sustainability", "Dashboard", "Analytics"],
     link: "#"
@@ -171,18 +172,20 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
       }}
     >
       <div 
-        className="relative overflow-hidden aspect-video"
+        className="relative overflow-hidden"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <img 
-          src={project.image} 
-          alt={project.title} 
-          className="w-full h-full object-cover transition-transform duration-500 ease-out"
-          style={{
-            transform: isHovered ? 'scale(1.05)' : 'scale(1)'
-          }}
-        />
+        <AspectRatio ratio={16/9}>
+          <img 
+            src={project.image} 
+            alt={project.title} 
+            className="w-full h-full object-cover transition-transform duration-500 ease-out"
+            style={{
+              transform: isHovered ? 'scale(1.05)' : 'scale(1)'
+            }}
+          />
+        </AspectRatio>
         {isHovered && (
           <div className="absolute inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center animate-fade-in">
             <Button size="sm" variant="secondary" className="gap-2">
